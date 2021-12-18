@@ -1,18 +1,18 @@
 import { readFileSync, writeFileSync } from "fs";
 import * as semver from "semver";
 
-var res = readFileSync("package.json", {
+const res = readFileSync("package.json", {
     encoding: "utf8"
 });
 
-var packagejson = JSON.parse(res);
-var oldVersion = packagejson.version;
-var versionParsed = semver.parse(oldVersion, {
+const packagejson = JSON.parse(res);
+const oldVersion = packagejson.version;
+const versionParsed = semver.parse(oldVersion, {
     loose: false,
     includePrerelease: true
 });
 
-var newVersionFormatted = `${versionParsed.major}.${versionParsed.minor}.${versionParsed.patch}+${parseInt(versionParsed.build[0])+1}`;
+const newVersionFormatted = `${versionParsed.major}.${versionParsed.minor}.${versionParsed.patch}+${parseInt(versionParsed.build[0])+1}`;
 
 console.log(`Increasing version from ${oldVersion} to ${newVersionFormatted}`);
 

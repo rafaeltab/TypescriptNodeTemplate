@@ -16,7 +16,7 @@ import { rmSync, existsSync } from "fs";
     }
 
     // execute build
-    var code = await execAsync("node", ["node_modules/typescript/bin/tsc"]);
+    const code = await execAsync("node", ["node_modules/typescript/bin/tsc"]);
 
     if (code == 0) {
         console.log("\nBuild completed with success.")

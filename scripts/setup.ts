@@ -4,9 +4,9 @@ import { sync as globSync } from "glob";
 
 (async () => {
     console.log("Retrieving variables");
-    var variableNames = Object.keys(variables);
-    var variableRegex: { [Property in keyof typeof variables]: RegExp } = variableNames.map(x => {
-        var g = {}
+    const variableNames = Object.keys(variables);
+    const variableRegex: { [Property in keyof typeof variables]: RegExp } = variableNames.map(x => {
+        const g = {}
         g[x] = new RegExp(`\\\$${x}\\\$`, "g");
         return g;
     }).reduce((prev, curr) => {
@@ -14,21 +14,21 @@ import { sync as globSync } from "glob";
     }) as any;
 
     console.log("Getting a list of all files in this directory");
-    var allFiles = globSync("**/*.*");
+    const allFiles = globSync("**/*.*");
 
-    var excludeRegexes = [
+    const excludeRegexes = [
         /node_modules/,
         /dist/,
         /index\.ts/
     ]
 
     console.log("Removing some ignored files");
-    var theFiles = allFiles.filter(x => {
+    const theFiles = allFiles.filter(x => {
         return excludeRegexes.filter(y => y.test(x)).length == 0
     });
 
     console.log("Checking each file to see if it needs replacing of variables");
-    var filesWithReplace = []
+    const filesWithReplace = []
 
     for (const file of theFiles) {
         var data = await fs.readFileAsync(file, {
