@@ -1,12 +1,18 @@
 {
     "name": "$PROJ_NAME$",
-    "version": "0.0.1+0",
+    "version": "0.0.1+1",
     "description": "A template that uses typescript for node",
     "main": "./dist/src/index.js",
     "scripts": {
         "build": "ts-node --project ./tsconfig.scripts.json ./scripts/build.ts",
+
         "start": "ts-node --project ./tsconfig.scripts.json ./scripts/start.ts",
-        "start:dev": "ts-node --project ./tsconfig.scripts.json ./scripts/startdev.ts"
+        "start:dev": "ts-node --project ./tsconfig.scripts.json ./scripts/startdev.ts",
+
+        "version:major": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-major.ts",
+        "version:minor": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-minor.ts",
+        "version:patch": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-patch.ts",
+        "version:build": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-build.ts"
     },
     "repository": {
         "type": "git",
@@ -21,9 +27,11 @@
     "homepage": "$REPO_URL$#readme",
     "devDependencies": {
         "@types/node": "^17.0.0",
+        "nodemon": "^2.0.15",
         "ts-node": "^10.4.0",
         "ts-node-dev": "^1.1.8",
         "typescript": "^4.5.4",
-        "nodemon": "^2.0.15"
+        "@types/semver": "^7.3.9",
+        "semver": "^5.7.1"
     }
 }
