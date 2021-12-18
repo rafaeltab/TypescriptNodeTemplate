@@ -11,7 +11,9 @@
         "version:minor": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-minor.ts",
         "version:patch": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-patch.ts",
         "version:build": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-build.ts",
-        "setup": "ts-node --project ./tsconfig.scripts.json ./scripts/setup.ts"
+        "setup": "ts-node --project ./tsconfig.scripts.json ./scripts/setup.ts",
+        "lint": "ts-node --project ./tsconfig.scripts.json ./scripts/lint.ts",
+        "lint:fix": "ts-node --project ./tsconfig.scripts.json ./scripts/lint.ts -- --fix"
     },
     "repository": {
         "type": "git",
@@ -28,6 +30,9 @@
         "@types/glob": "^7.2.0",
         "@types/node": "^17.0.0",
         "@types/semver": "^7.3.9",
+        "@typescript-eslint/eslint-plugin": "^5.7.0",
+        "@typescript-eslint/parser": "^5.7.0",
+        "eslint": "^8.5.0",
         "nodemon": "^2.0.15",
         "semver": "^5.7.1",
         "ts-node": "^10.4.0",
