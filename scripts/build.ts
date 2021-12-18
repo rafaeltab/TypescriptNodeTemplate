@@ -1,4 +1,4 @@
-import { exec, execAsync } from "./libs/execute";
+import { execAsync } from "./libs/execute";
 import { rmSync, existsSync } from "fs";
 
 (async () => {
