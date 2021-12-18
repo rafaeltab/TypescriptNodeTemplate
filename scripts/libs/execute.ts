@@ -6,12 +6,12 @@ export function exec(command: string, args: readonly string[] = [], callback?: (
     });
     spRet.stdout.setEncoding("utf8");
     spRet.stdout.on('data', function (data) {
-        console.log(data);
+        process.stdout.write(data);
     });
 
     spRet.stderr.setEncoding('utf8');
     spRet.stderr.on('data', function (data) {
-        console.error(data);
+        process.stderr.write(data);
     });
 
     spRet.on('close', (code) => {
