@@ -11,7 +11,7 @@ export function exec(command: string, args: readonly string[] = [], callback?: (
 }
 
 export function execAsync(command: string, args: readonly string[] = []): Promise<number | null> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         exec(command, args, (code) => {
             resolve(code);
         });

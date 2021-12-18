@@ -7,11 +7,11 @@ import { sync as globSync } from "glob";
     const variableNames = Object.keys(variables);
     const variableRegex: { [Property in keyof typeof variables]: RegExp } = variableNames.map(x => {
         const g = {}
-        g[x] = new RegExp(`\\\$${x}\\\$`, "g");
+        g[x] = new RegExp(`\\$${x}\\$`, "g");
         return g;
     }).reduce((prev, curr) => {
         return Object.assign(prev, curr);
-    }) as any;
+    }) as { [Property in keyof typeof variables]: RegExp };
 
     console.log("Getting a list of all files in this directory");
     const allFiles = globSync("**/*.*");
@@ -31,7 +31,7 @@ import { sync as globSync } from "glob";
     const filesWithReplace = []
 
     for (const file of theFiles) {
-        var data = await fs.readFileAsync(file, {
+        const data = await fs.readFileAsync(file, {
             encoding: "utf8"
         });
 
@@ -47,7 +47,7 @@ import { sync as globSync } from "glob";
     console.log("\nReplacing variables");
     for (const file of filesWithReplace) {
         console.log(`Replacing file ${file}`);
-        var data = await fs.readFileAsync(file, {
+        let data = await fs.readFileAsync(file, {
             encoding: "utf8"
         });
 

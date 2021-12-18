@@ -11,7 +11,7 @@ export function readFileAsync(
         } & Abortable)
         | BufferEncoding
 ): Promise<string> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         readFile(path, options, (err, data) => {
             if (err) throw err;
             resolve(data);
