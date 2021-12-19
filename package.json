@@ -5,6 +5,7 @@
     "main": "./dist/src/index.js",
     "scripts": {
         "build": "ts-node --project ./tsconfig.scripts.json ./scripts/build.ts",
+        "build:docs": "ts-node --project ./tsconfig.scripts.json ./scripts/builddocs.ts",
         "start": "ts-node --project ./tsconfig.scripts.json ./scripts/start.ts",
         "start:dev": "ts-node --project ./tsconfig.scripts.json ./scripts/startdev.ts",
         "version:major": "ts-node --project ./tsconfig.scripts.json ./scripts/version-increase-major.ts",
@@ -37,6 +38,7 @@
         "semver": "^5.7.1",
         "ts-node": "^10.4.0",
         "ts-node-dev": "^1.1.8",
+        "typedoc": "^0.22.10",
         "typescript": "^4.5.4"
     }
 }
